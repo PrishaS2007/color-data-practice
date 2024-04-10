@@ -33,17 +33,42 @@ function goBtnClicked() {
 function allColors() {
   // Display Name and Family of All Colors
   outputEl.innerHTML = "<h3>Display All Colors</h3>";
-  outputEl.innerHTML = colorData;
+  for (let i = 0; i < colorData.length; i++) {
+    outputEl.innerHTML +=
+      "<br>" + colorData[i].name + "," + " " + colorData[i].family + "<br/>";
+  }
 }
 
 function brightColors() {
   // Display Name and Brightness of All Colors with a Brightness of 200 and Higher
   outputEl.innerHTML = "<h3>Display Bright Colors</h3>";
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i].brightness >= 200) {
+      outputEl.innerHTML +=
+        "<br>" + colorData[i].name + "," + " " + colorData[i].family + "<br/>";
+    }
+  }
 }
 
 function redPinkFamilies() {
   // Count Colors in Red/Pink Families
   outputEl.innerHTML = "<h3>Count Red/Pink Family Colors</h3>";
+  let redFamily = 0;
+  let pinkFamily = 0;
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i].family == "Red") {
+      redFamily++;
+    } else if (colorData[i].family == "Pink") {
+      pinkFamily++;
+    }
+  }
+  outputEl.innerHTML =
+    "Total amount of colors in Red family:" +
+    " " +
+    redFamily +
+    "Total amount of colors in Pink family:" +
+    " " +
+    pinkFamily;
 }
 
 function familySearch() {
@@ -54,4 +79,14 @@ function familySearch() {
 function startLetterSearch() {
   // Display Name of all Colors that Match a User Provided Starting Letter. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Start Letter Search</h3>";
+
+  let letter = prompt("Please enter starting letter:");
+  let newList = [];
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i][0] === letter) {
+      outputEl.innerHTML += "<br/>" + colorData[i] + "<br/>";
+      newList.push(colorData[i]);
+    }
+  }
+  outputEl.innerHTML = newList.length + "<br/>";
 }
