@@ -33,6 +33,7 @@ function goBtnClicked() {
 function allColors() {
   // Display Name and Family of All Colors
   outputEl.innerHTML = "<h3>Display All Colors</h3>";
+  outputEl.innerHTML = colorData;
 }
 
 function brightColors() {
