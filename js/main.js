@@ -45,7 +45,12 @@ function brightColors() {
   for (let i = 0; i < colorData.length; i++) {
     if (colorData[i].brightness >= 200) {
       outputEl.innerHTML +=
-        "<br>" + colorData[i].name + "," + " " + colorData[i].brightness + "<br/>";
+        "<br>" +
+        colorData[i].name +
+        "," +
+        " " +
+        colorData[i].brightness +
+        "<br/>";
     }
   }
 }
@@ -65,7 +70,8 @@ function redPinkFamilies() {
   outputEl.innerHTML +=
     "Total amount of colors in Red family:" +
     " " +
-    redFamily + "<br>" +
+    redFamily +
+    "<br>" +
     "Total amount of colors in Pink family:" +
     " " +
     pinkFamily;
@@ -74,18 +80,16 @@ function redPinkFamilies() {
 function familySearch() {
   // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Family Search</h3>";
-  let familyName = prompt("Provide a family color");
+  let familyName = prompt("Provide a color family.");
   let familyCount = 0;
   for (let i = 0; i < colorData.length; i++) {
     if (colorData[i].family == familyName) {
       outputEl.innerHTML +=
-      "<br>" + colorData[i].name + "," + " " + colorData[i].family + "<br/>";
+        "<br>" + colorData[i].name + "," + " " + colorData[i].family + "<br/>";
       familyCount++;
+    }
   }
-}
-outputEl.innerHTML += "<br>" +
-    "Total amount of colors:" +
-    " " + familyCount
+  outputEl.innerHTML += "<br>" + "Total amount of colors:" + " " + familyCount;
 }
 
 function startLetterSearch() {
@@ -99,5 +103,6 @@ function startLetterSearch() {
       newList.push(colorData[i].name);
     }
   }
-  outputEl.innerHTML += "<br>" + "Total amount of colors:" + newList.length + "<br/>";
+  outputEl.innerHTML +=
+    "<br>" + "Total amount of colors:" + newList.length + "<br/>";
 }
