@@ -99,8 +99,8 @@ function startLetterSearch() {
   let newList = [];
   for (let i = 0; i < colorData.length; i++) {
     if (colorData[i].name[0] === letter) {
-      outputEl.innerHTML += "<br/>" + colorData[i].name + "<br/>";
       newList.push(colorData[i].name);
+      outputEl.innerHTML += "<br/>" + colorData[i].name + "<br/>";
     }
   }
   outputEl.innerHTML +=
